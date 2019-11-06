@@ -417,7 +417,7 @@ backpack
 bakery
 balance beam
 balloon
-ballpoint
+pen
 Band Aid
 banjo
 bannister
@@ -507,7 +507,7 @@ coffee mug
 coffeepot
 coil
 combination lock
-computer keyboard
+F
 confectionery
 container ship
 convertible
@@ -526,7 +526,7 @@ crutch
 cuirass
 dam
 desk
-desktop computer
+computer
 dial telephone
 diaper
 digital clock
@@ -719,7 +719,7 @@ picket fence
 pickup
 pier
 piggy bank
-pill bottle
+bottle
 pillow
 ping-pong ball
 pinwheel
@@ -736,7 +736,7 @@ pole
 police van
 poncho
 pool table
-pop bottle
+bottle
 pot
 potter's wheel
 power drill
@@ -769,7 +769,7 @@ rotisserie
 rubber eraser
 rugby ball
 rule
-running shoe
+shoe
 safe
 safety pin
 saltshaker
@@ -897,7 +897,7 @@ wardrobe
 warplane
 washbasin
 washer
-water bottle
+bottle
 water jug
 water tower
 whiskey jug

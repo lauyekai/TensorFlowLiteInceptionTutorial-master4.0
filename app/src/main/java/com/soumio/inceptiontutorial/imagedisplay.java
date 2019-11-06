@@ -16,19 +16,25 @@ public class imagedisplay extends AppCompatActivity {
     String[][] items = {
 
             {"typewriter keyboard","12 th Sept"},
-
-
+            {"computer","12 th Sept"},
+            {"shoe","12 th Sept"},
+            {"mouse","12 th Sept"},
+            {"electric fan","12 th Sept"},
+            {"pen","12 th Sept"},
+            {"wallet","12 th Sept"},
+            {"electric fan","12 th Sept"},
+            {"bottle","12 th Sept"},
     };
 
         private TextView itemDisplay,test;
         private Button opencamera, nextItem ;
-        private String result1, result2,result3;
+        private String result1, result2,result3, nextobject,object;
 
         private Integer count=1;
 
         private View sucessnotice;
     final int min = 0;
-    final int max = 6;
+    final int max = 8;
     final int random = new Random().nextInt((max - min) + 1) + min;
     public static final String MyPREFERENCES = "MyPrefs" ;
     SharedPreferences sharedpreferences;
@@ -43,8 +49,8 @@ public class imagedisplay extends AppCompatActivity {
                 .getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = prefs.edit();
 
-       String object = prefs.getString("search","");
-        count= prefs.getInt("count",0);
+        object = prefs.getString("search","");
+        count= prefs.getInt("count",1);
 
 
         if (extras != null) {
@@ -100,7 +106,11 @@ public class imagedisplay extends AppCompatActivity {
                 });
             } else {
                 sucessnotice.setBackgroundResource(R.color.colorRed);
-                itemDisplay.setText(("Please try again"));
+                if(count==1)
+                {itemDisplay.setText(object);}
+                else {
+                    itemDisplay.setText("Please try again\n" + object);
+                }
                 opencamera.setText("Try again");
                 count=count+1;
                 editor.putInt("count",count);
@@ -114,9 +124,28 @@ public class imagedisplay extends AppCompatActivity {
                 });
 
 
-                if(count>=3)
+                if(count>=4)
                 {
                     nextItem.setVisibility(View.VISIBLE);
+                    nextItem.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            nextItem.setVisibility(View.INVISIBLE);
+                           do
+                           {
+
+                                nextobject= items[random][0];
+                           }while(object.equals(nextobject) );
+                           itemDisplay.setText(nextobject);
+                             count=1;
+                            editor.putInt("count",count);
+                            editor.putString("search", nextobject);
+                            editor.commit();
+                            Intent intent = new Intent(imagedisplay.this, imagedisplay.class);
+                            startActivity(intent);
+
+                        }
+                    });
 
 
                 }
